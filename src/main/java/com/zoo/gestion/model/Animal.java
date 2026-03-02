@@ -1,4 +1,4 @@
-package main.java.com.zoo.gestion.model;
+package com.zoo.gestion.model;
 
 import java.util.UUID;
 
@@ -22,11 +22,11 @@ public abstract class Animal {
         }       
         this.age = age;
         if (poids < 0.0){
-            throw new IllegalAccessException("le poids doit etre plus que 0.");
+            throw new IllegalArgumentException("le poids doit etre plus que 0.");
         }
         this.poids = poids;
         if (species == null || species.isEmpty()){
-            throw new IllegalAccessException("l'espece de l'animal ne peut pas être vide.");
+            throw new IllegalArgumentException("l'espece de l'animal ne peut pas être vide.");
         }
         this.species = species;
         this.type = type;
@@ -83,7 +83,7 @@ public abstract class Animal {
     }
     public void setPoids(double poids) {
         if (poids < 0.0){
-            throw new IllegalAccessException("le poids doit etre plus que 0.");
+            throw new IllegalArgumentException("le poids doit etre plus que 0.");
         }
         this.poids = poids;
     }

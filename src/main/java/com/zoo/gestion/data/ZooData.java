@@ -135,7 +135,7 @@ public class ZooData {
 
         return animaux;
     }
-    public static List<Animal> getAllAnimals() {
+    public static List<Animal> getAnimals() {
         return List.copyOf(loadAnimals().values());
     }
 }

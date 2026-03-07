@@ -21,17 +21,18 @@ public class Mammifere extends Animal {
 
     return base + carnivoreBonus + laitBonus;
     }
-
+    // getters
     public boolean isProduitLait() {
         return produitLait;
     }
 
-    public void setProduitLait(boolean produitLait) {
-        this.produitLait = produitLait;
-    }
-
     public boolean isCarnivore() {
         return isCarnivore;
+    }
+
+    // Setters
+     public void setProduitLait(boolean produitLait) {
+        this.produitLait = produitLait;
     }
 
     public void setCarnivore(boolean carnivore) {

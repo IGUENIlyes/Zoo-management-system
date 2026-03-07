@@ -2,10 +2,11 @@ package com.zoo.gestion.model;
 
 public class Invertebre extends Animal {
 
+    // Attributs spécifiques aux invertébrés
     private boolean hasExoskeleton;  
     private int numberOfLegs;        
           
-
+    // Constructeur
     public Invertebre(String name, int age, double poids, String species, String type, String habitat, boolean hasExoskeleton, int numberOfLegs) {
         super(name, age, poids, species, "Invertebre", habitat);
         this.hasExoskeleton = hasExoskeleton;
@@ -16,6 +17,7 @@ public class Invertebre extends Animal {
         
     }
 
+    // méthodes spécifiques aux invertébrés
     @Override
     public double getDailyFood() {
 
@@ -38,7 +40,7 @@ public String move() {
         }
     }
 
-
+// Getters 
     public boolean hasExoskeleton() {
         return hasExoskeleton;
     }
@@ -47,7 +49,7 @@ public String move() {
         return numberOfLegs;
     }
 
-
+// Setters
     public void setHasExoskeleton(boolean hasExoskeleton) {
         this.hasExoskeleton = hasExoskeleton;
     }

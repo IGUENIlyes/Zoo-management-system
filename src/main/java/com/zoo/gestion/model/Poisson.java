@@ -1,4 +1,4 @@
-package main.java.com.zoo.gestion.model;
+package com.zoo.gestion.model;
 
 public class Poisson extends Animal {
     // Attributs spécifiques au poisson
@@ -11,7 +11,7 @@ public class Poisson extends Animal {
     public Poisson(String name, int age, double poids, String species, String type, String habitat,
                    String waterType, double longueur,
                     boolean isPredator) {
-        super(name, age, poids, species, "Poisson", habitat, "aquatique");
+        super(name, age, poids, species, "Poisson", habitat);
 
         if (!waterType.equalsIgnoreCase("eau douce") &&
             !waterType.equalsIgnoreCase("eau salée")) {

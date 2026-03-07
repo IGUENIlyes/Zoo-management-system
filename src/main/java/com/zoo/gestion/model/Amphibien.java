@@ -1,4 +1,4 @@
-package main.java.com.zoo.gestion.model;
+package com.zoo.gestion.model;
 
 public class Amphibien extends Animal{
 

@@ -1,4 +1,4 @@
-package main.java.com.zoo.gestion.model;
+package com.zoo.gestion.model;
 
 public class Reptile extends Animal {
 
@@ -13,10 +13,10 @@ public class Reptile extends Animal {
         this.venimeux = venimeux;
         this.mue = mue;
         if (temperatureOptimale < 45.0){
-            throw new illegalArgumentException("Cette temperature est trop bas pour un reptile.");
+            throw new IllegalArgumentException("Cette temperature est trop bas pour un reptile.");
         }
         this.temperatureOptimale = temperatureOptimale;
-        if (venimeux == True){
+        if (venimeux == true){
             if (typeVenin == null || typeVenin.isEmpty()) {
                 throw new IllegalArgumentException("Le type de Venin ne peut pas être vide si le reptile est venimeux.");
             }
@@ -34,11 +34,11 @@ public class Reptile extends Animal {
     }
 
     public boolean getMue(){
-        return this.mue == True;
+        return this.mue == true;
     }
 
     public boolean getVenimeux(){
-        return this.venimeux == True;
+        return this.venimeux == true;
     }
 
     //Setters
@@ -68,15 +68,15 @@ public class Reptile extends Animal {
 
     //Methods
     public String seRechauffer() {
-        return nom + " se chauffe au soleil pour réguler sa température.";
+        return name + " se chauffe au soleil pour réguler sa température.";
     }
 
     public String utiliserVenin() {
-        return venimeux ? nom + " utilise son venin pour se défendre." : nom + " n'est pas venimeux.";
+        return venimeux ? name + " utilise son venin pour se défendre." : name + " n'est pas venimeux.";
     }
 
     public String move() {
-        return nom + " rampe lentement sur le sol.";
+        return name + " rampe lentement sur le sol.";
     }
 
     @Override

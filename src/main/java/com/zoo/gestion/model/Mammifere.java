@@ -1,4 +1,4 @@
-package main.java.com.zoo.gestion.model;
+package com.zoo.gestion.model;
 
 public class Mammifere extends Animal {
     private boolean produitLait;
@@ -20,8 +20,8 @@ public class Mammifere extends Animal {
     double laitBonus = produitLait ? 0.5 : 0.0;
 
     return base + carnivoreBonus + laitBonus;
-}
-// getters
+    }
+    // getters
     public boolean isProduitLait() {
         return produitLait;
     }
@@ -30,12 +30,18 @@ public class Mammifere extends Animal {
         return isCarnivore;
     }
 
-// Setters
+    // Setters
      public void setProduitLait(boolean produitLait) {
         this.produitLait = produitLait;
     }
 
     public void setCarnivore(boolean carnivore) {
         isCarnivore = carnivore;
+    }
+
+    @Override
+    public String move() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'move'");
     }
 }

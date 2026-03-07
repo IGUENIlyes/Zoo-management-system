@@ -2,6 +2,19 @@ package com.zoo.gestion.model;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = Mammifere.class,  name = "Mammifere"),
+    @JsonSubTypes.Type(value = Oiseau.class,     name = "Oiseau"),
+    @JsonSubTypes.Type(value = Poisson.class,    name = "Poisson"),
+    @JsonSubTypes.Type(value = Reptile.class,    name = "Reptile"),
+    @JsonSubTypes.Type(value = Amphibien.class,  name = "Amphibien"),
+    @JsonSubTypes.Type(value = Invertebre.class, name = "Invertebre")
+})
+
 public abstract class Animal {
     protected String id;
     protected String name;
@@ -106,6 +119,7 @@ public abstract class Animal {
         }
         this.type = type;
     }
+    
     
 
 }

@@ -1,13 +1,14 @@
-package main.java.com.zoo.gestion.service;
-
-import com.zoo.gestion.data.ZooData; 
-import com.zoo.gestion.model.Animal; 
-import org.springframework.stereotype.Service;
+package com.zoo.gestion.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List; 
+import java.util.List;
 import java.util.Map; 
+
+import org.springframework.stereotype.Service;
+
+import com.zoo.gestion.data.ZooData;
+import com.zoo.gestion.model.Animal; 
 
 @Service
 public class ZooService {
@@ -147,7 +148,7 @@ return total;
 
          Map<String, Long> stats = new HashMap<>();
           for (Animal a : zooData.getAnimals()) {
-             String category = a.getCategory();
+             String category = a.getType();
               if (!stats.containsKey(category)) {
                 
                 stats.put(category, 1L); 

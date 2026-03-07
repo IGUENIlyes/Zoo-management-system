@@ -1,12 +1,12 @@
-package main.java.com.zoo.gestion.model;
+package com.zoo.gestion.model;
 
 public class Oiseau extends Animal{
     private double envergure;
     private boolean vole;
     private String beaktype;
     
-    public Oiseau(String name, int age, String species, String Type, String habitat, double envergure, boolean vole, String beaktype){
-        super(name, age, species,"Oiseau", habitat);
+    public Oiseau(String name, int age, double poids, String species, String Type, String habitat, double envergure, boolean vole, String beaktype){
+        super(name, age, poids, species,"Oiseau", habitat);
 
         if (envergure <=0) {
             throw new IllegalArgumentException("L'envergure doit être positive");

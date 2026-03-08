@@ -81,7 +81,8 @@ Un résumé s'affiche dans le terminal indiquant si tous les tests ont réussi o
 
 ## 👤 Auteurs
 
-**IGUENI Lyes** — [GitHub](https://github.com/IGUENIlyes)
-**MUKURI MAKA Jonas** — [GitHub](https://github.com/Jonas-Mukuri-Maka)
-**NOTUE-KAMTO Michel-Bryan** 
+**IGUENI Lyes** — [GitHub](https://github.com/IGUENIlyes)  
+**MUKURI MAKA Jonas** — [GitHub](https://github.com/Jonas-Mukuri-Maka)  
+**NOTUE-KAMTO Michel-Bryan**  
+
 

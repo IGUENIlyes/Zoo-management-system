@@ -1,6 +1,7 @@
 package com.zoo.gestion.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +27,9 @@ public class ZooController {
     private ZooService zooService;
     private AnimalMapper animalMapper;
 
-    public ZooController(ZooService zooService) {
+    public ZooController(ZooService zooService, AnimalMapper animalMapper) {
         this.zooService = zooService;
-       
+        this.animalMapper = animalMapper;
     }
 
     // GET tous les animaux
@@ -120,5 +121,36 @@ public class ZooController {
             return ApiResponse.success("Animal supprimé avec succès");
         }
         return ApiResponse.error("Aucun animal trouvé avec le nom: " + name);
+    }
+
+    // GET animaux par nom
+    @GetMapping("/name/{name}")
+    public ApiResponse<List<Animal>> getAnimalsByName(@PathVariable String name) {
+        List<Animal> animals = zooService.getAnimalsByName(name);
+        if (animals.isEmpty()) {
+            return ApiResponse.error("Aucun animal trouvé avec le nom: " + name);
+        }
+        return ApiResponse.success("Animaux trouvés avec le nom '" + name + "'", animals);
+    }
+
+    // GET statistiques: nombre d'animaux par catégorie
+    @GetMapping("/stats/by-category")
+    public ApiResponse<Map<String, Long>> getCountByCategory() {
+        Map<String, Long> stats = zooService.getCountByCategory();
+        return ApiResponse.success("Statistiques par catégorie récupérées", stats);
+    }
+
+    // GET statistiques: âge moyen par espèce
+    @GetMapping("/stats/average-age")
+    public ApiResponse<Map<String, Double>> getAverageAgeBySpecies() {
+        Map<String, Double> stats = zooService.getAverageAgeBySpecies();
+        return ApiResponse.success("Âge moyen par espèce récupéré", stats);
+    }
+
+    // GET statistiques: poids moyen par espèce
+    @GetMapping("/stats/average-weight")
+    public ApiResponse<Map<String, Double>> getAverageWeightBySpecies() {
+        Map<String, Double> stats = zooService.getAverageWeightBySpecies();
+        return ApiResponse.success("Poids moyen par espèce récupéré", stats);
     }
 }

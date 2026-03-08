@@ -160,7 +160,7 @@ return total;
          return stats; 
         }
 
-        // Age moyen par espèce
+        // Age moyen par espèce (statistiques)
     public Map<String, Double> getAverageAgeBySpecies() {
         Map<String, Integer> totalAge = new HashMap<>();
         Map<String, Integer> count = new HashMap<>();

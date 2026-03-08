@@ -10,7 +10,9 @@ import com.zoo.gestion.model.Mammifere;
 import com.zoo.gestion.model.Oiseau;
 import com.zoo.gestion.model.Poisson;
 import com.zoo.gestion.model.Reptile;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ZooData {
 
     private final List<Animal> animals;

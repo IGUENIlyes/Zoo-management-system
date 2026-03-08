@@ -194,7 +194,9 @@ function createAnimalCard(animal) {
     f.type.value = animal.type;
     f.habitat.value = animal.habitat;
     els.updateId.value = animal.id;
-    window.scrollTo({ top: f.offsetTop - 30, behavior: "smooth" });
+
+    // Scroll vers la section "Modifier un animal" après pré-remplissage.
+    f.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
   div.querySelector(".delete-btn").addEventListener("click", async () => {

@@ -1,5 +1,4 @@
-# 🦁 Zoo Gestion System
-
+# 🦁 Zoo Gestion
 Une application web de gestion de zoo développée avec Java Spring Boot. Elle permet de gérer une collection d'animaux à travers une interface simple et complète, accessible directement depuis le navigateur.
 
 ---
@@ -85,3 +84,4 @@ Un résumé s'affiche dans le terminal indiquant si tous les tests ont réussi o
 **IGUENI Lyes** — [GitHub](https://github.com/IGUENIlyes)
 **MUKURI MAKA Jonas** — [GitHub](https://github.com/Jonas-Mukuri-Maka)
 **NOTUE-KAMTO Michel-Bryan** 
+

@@ -26,9 +26,9 @@ public class ZooController {
     private ZooService zooService;
     private AnimalMapper animalMapper;
 
-    public ZooController(ZooService zooService, AnimalMapper animalMapper) {
+    public ZooController(ZooService zooService) {
         this.zooService = zooService;
-        this.animalMapper = animalMapper;
+       
     }
 
     // GET tous les animaux

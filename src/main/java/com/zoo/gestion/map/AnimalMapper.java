@@ -8,10 +8,12 @@ import com.zoo.gestion.model.Mammifere;
 import com.zoo.gestion.model.Oiseau;
 import com.zoo.gestion.model.Poisson;
 import com.zoo.gestion.model.Reptile;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AnimalMapper {
 
-    public static Animal toAnimal(AnimalRequest dto) {
+    public Animal toAnimal(AnimalRequest dto) {
         if (dto.getType() == null || dto.getType().isBlank()) {
             throw new IllegalArgumentException("Le type de l'animal est obligatoire.");
         }

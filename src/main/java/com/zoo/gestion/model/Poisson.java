@@ -1,11 +1,19 @@
 package com.zoo.gestion.model;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Poisson")
 public class Poisson extends Animal {
     // Attributs spécifiques au poisson
 
     private String Watertype;   
     private double longueur;            
     private boolean isPredator; 
+
+    protected Poisson() {
+    }
 
 // Constructeur
     public Poisson(String name, int age, double poids, String species, String type, String habitat,

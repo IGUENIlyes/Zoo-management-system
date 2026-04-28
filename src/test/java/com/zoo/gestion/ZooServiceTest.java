@@ -11,24 +11,33 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.zoo.gestion.data.ZooData;
 import com.zoo.gestion.model.Animal;
 import com.zoo.gestion.model.Mammifere;
 import com.zoo.gestion.model.Oiseau;
 import com.zoo.gestion.model.Reptile;
+import com.zoo.gestion.repository.AnimalRepository;
 import com.zoo.gestion.service.ZooService;
 
+@SpringBootTest
+@ActiveProfiles("test")
+@Transactional
 class ZooServiceTest {
 
+    @Autowired
     private ZooService zooService;
+
+    @Autowired
+    private AnimalRepository animalRepository;
     private List<Animal> animals;
 
     @BeforeEach
     void setUp() {
-        ZooData zooData = new ZooData();
-        animals = zooData.getAnimals();
-        zooService = new ZooService(zooData);
+        animals = animalRepository.findAll();
     }
 
     // getAllAnimals
@@ -112,7 +121,9 @@ class ZooServiceTest {
     @Test
     void addAnimal_increasesCount() {
         int before = zooService.getAllAnimals().size();
-        Animal newAnimal = animals.get(0);
+        Animal newAnimal = new Mammifere(
+            "Nova", 2, 40.0, "Lynx", "Mammifere", "Forêt dense", true, true
+        );
         zooService.addAnimal(newAnimal);
         assertEquals(before + 1, zooService.getAllAnimals().size());
     }

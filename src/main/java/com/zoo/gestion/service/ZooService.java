@@ -205,4 +205,15 @@ return total;
         }
         return averagePoids;
     }
+
+    // Nourriture totale necessaire par espèce quotidiennement
+    public Map<String, Double> getTotalFoodBySpecies() {
+        Map<String, Double> totalFood = new HashMap<>();
+
+        for (Animal animal : zooData.getAnimals()) {
+            String species = animal.getSpecies();
+            totalFood.put(species, totalFood.getOrDefault(species, 0.0) + animal.getDailyFood());
+        }
+        return totalFood;
+    }
 }

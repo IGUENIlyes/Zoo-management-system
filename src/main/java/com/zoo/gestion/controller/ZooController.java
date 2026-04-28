@@ -153,4 +153,11 @@ public class ZooController {
         Map<String, Double> stats = zooService.getAverageWeightBySpecies();
         return ApiResponse.success("Poids moyen par espèce récupéré", stats);
     }
+
+    // GET statistiques: nourriture totale par espèce (quotidien)
+    @GetMapping("/stats/total-food")
+    public ApiResponse<Map<String, Double>> getTotalFoodBySpecies() {
+        Map<String, Double> stats = zooService.getTotalFoodBySpecies();
+        return ApiResponse.success("Nourriture totale par espèce récupérée", stats);
+    }
 }

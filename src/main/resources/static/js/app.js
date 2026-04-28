@@ -21,7 +21,8 @@ const els = {
   loadStatsBtn: document.getElementById("loadStatsBtn"),
   statsByCategory: document.getElementById("statsByCategory"),
   statsAverageAge: document.getElementById("statsAverageAge"),
-  statsAverageWeight: document.getElementById("statsAverageWeight")
+  statsAverageWeight: document.getElementById("statsAverageWeight"),
+  statsTotalFood: document.getElementById("statsTotalFood")
 };
 
 function showMessage(text, isError = false) {
@@ -267,10 +268,11 @@ async function applyFilters() {
 
 async function loadStats() {
   try {
-    const [cat, age, weight] = await Promise.all([
+    const [cat, age, weight, food] = await Promise.all([
       api(`${API_BASE}/stats/by-category`),
       api(`${API_BASE}/stats/average-age`),
-      api(`${API_BASE}/stats/average-weight`)
+      api(`${API_BASE}/stats/average-weight`),
+      api(`${API_BASE}/stats/total-food`)
     ]);
 
     els.statsByCategory.innerHTML = Object.entries(cat.data).map(([k, v]) => 
@@ -283,6 +285,10 @@ async function loadStats() {
 
     els.statsAverageWeight.innerHTML = Object.entries(weight.data).map(([k, v]) => 
       `<p><strong>${k}:</strong> ${v.toFixed(2)} kg</p>`
+    ).join("");
+
+    els.statsTotalFood.innerHTML = Object.entries(food.data).map(([k, v]) => 
+      `<p><strong>${k}:</strong> ${Number(v).toFixed(2)} kg/jour</p>`
     ).join("");
 
     showMessage("Statistiques chargées avec succès.");

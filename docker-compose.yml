@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: zoo_db
+      POSTGRES_USER: zoo
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/zoo_db
+      SPRING_DATASOURCE_USERNAME: zoo
+      SPRING_DATASOURCE_PASSWORD: secret
+    depends_on:
+      - db

@@ -4,7 +4,12 @@ import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "animals")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "dtype", discriminatorType = DiscriminatorType.STRING)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
 @JsonSubTypes({
     @JsonSubTypes.Type(value = Mammifere.class,  name = "Mammifere"),
@@ -16,14 +21,33 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 })
 
 public abstract class Animal {
+    @Id
+    @Column(length = 36, nullable = false, updatable = false)
     protected String id;
+
+    @Column(nullable = false)
     protected String name;
+
+    @Column(nullable = false)
     protected int age;
+
+    @Column(nullable = false)
     protected double poids;
+
+    @Column(nullable = false)
     protected String species;
+
+    @Column(nullable = false)
     protected String type;
+
+    @Column(nullable = false)
     protected String habitat;
+
+    @Transient
     protected double dailyFood;
+
+    protected Animal() {
+    }
 
     // Constructeur
 
@@ -47,6 +71,13 @@ public abstract class Animal {
             throw new IllegalArgumentException("Le habitat ne peut pas être vide.");
         }
         this.habitat = habitat;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        if (id == null || id.isBlank()) {
+            id = UUID.randomUUID().toString();
+        }
     }
 
 //    méthodes abstraites

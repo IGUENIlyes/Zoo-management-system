@@ -1,10 +1,18 @@
 package com.zoo.gestion.model;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Invertebre")
 public class Invertebre extends Animal {
 
     // Attributs spécifiques aux invertébrés
     private boolean hasExoskeleton;  
     private int numberOfLegs;        
+
+    protected Invertebre() {
+    }
           
     // Constructeur
     public Invertebre(String name, int age, double poids, String species, String type, String habitat, boolean hasExoskeleton, int numberOfLegs) {

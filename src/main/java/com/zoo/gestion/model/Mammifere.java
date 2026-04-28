@@ -1,8 +1,16 @@
 package com.zoo.gestion.model;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Mammifere")
 public class Mammifere extends Animal {
     private boolean produitLait;
     private boolean isCarnivore;
+
+    protected Mammifere() {
+    }
 
     public Mammifere(String name, int age, double poids, String species, String type, String habitat, boolean produitLait, boolean isCarnivore) {
         super(name, age, poids, species, "Mammifere", habitat);

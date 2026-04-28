@@ -1,9 +1,17 @@
 package com.zoo.gestion.model;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Oiseau")
 public class Oiseau extends Animal{
     private double envergure;
     private boolean vole;
     private String beaktype;
+
+    protected Oiseau() {
+    }
     
     public Oiseau(String name, int age, double poids, String species, String Type, String habitat, double envergure, boolean vole, String beaktype){
         super(name, age, poids, species,"Oiseau", habitat);

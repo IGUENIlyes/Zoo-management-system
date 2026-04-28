@@ -1,11 +1,19 @@
 package com.zoo.gestion.model;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Reptile")
 public class Reptile extends Animal {
 
     private boolean venimeux;
     private boolean mue;
     private double temperatureOptimale;
     private String typeVenin;
+
+    protected Reptile() {
+    }
 
     public Reptile(String name, int age, double poids, String species, String type, String habitat,
                     boolean venimeux, boolean mue, double temperatureOptimale, String typeVenin) {

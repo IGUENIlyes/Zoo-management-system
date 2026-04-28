@@ -1,10 +1,18 @@
 package com.zoo.gestion.model;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Amphibien")
 public class Amphibien extends Animal{
 
     private boolean vivresurterre;
     private boolean vivredansleau;
     private double longueur;
+
+    protected Amphibien() {
+    }
 
 
     public Amphibien(String name, int age,double poids, String species, String type, String habitat, boolean vivresurterre, boolean vivredansleau, double longueur) {

@@ -51,7 +51,7 @@ Tous les animaux sont affichés sous forme de cartes avec leurs informations gé
 
 ---
 
-## 🚀 Lancer l'application
+## 🚀 Lancer l'application en local
 
 ### Prérequis
 - Java 17 ou supérieur
@@ -68,6 +68,31 @@ mvn spring-boot:run
 L'application est accessible à l'adresse : **http://localhost:8080**
 
 ---
+
+### 🐳 Lancer avec Docker
+
+#### Prérequis
+- [Docker](https://www.docker.com/) installé sur votre machine
+
+#### Démarrage
+
+Construire et démarrer le conteneur (sans sauvegarde sur base de données):
+```bash
+docker build -t zoo-gestion .
+docker run -p 8081:8081 zoo-gestion
+```
+
+Ou avec Docker Compose (base de données intégrée) :
+```bash
+docker compose up --build
+```
+
+L'application est accessible à l'adresse : **http://localhost:8081**
+
+Pour arrêter le conteneur :
+```bash
+docker compose down
+```
 
 ## 🧪 Tests
 
